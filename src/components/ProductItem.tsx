@@ -1,20 +1,22 @@
-import type { ChangeEvent } from "react";
+import { useContext, type ChangeEvent } from "react";
 import type { CartItem, Product } from "../types/common.type";
+import { CartContext } from "../contexts/CartContext";
 import "./ProductItem.css";
 
 type ProductItemProps = {
     product: Product,
-    onQuantityChange: (productId: string, quantity: number) => void,
-    onAddItemToCart: (props: CartItem) => void
+    onQuantityChange: (productId: string, quantity: number) => void
 }
 
-function ProductItem({product, onQuantityChange, onAddItemToCart}: ProductItemProps) {
+function ProductItem({product, onQuantityChange}: ProductItemProps) {
 
     const productTitle = `${product.name} (${product.id})`;
     const priceDisplay: string = product.price === "not available" ? "Not Available" : `$${product.price}`;
     const isProductAvailable: boolean = product.price === "not available" ? false : true;
     const isDecreaseButtonDisabled: boolean = product.quantityToAdd <= 1 ? true : false;
     const isAddButtonDisabled: boolean = !isProductAvailable || product.quantityToAdd < 1 ? true : false; 
+    const {addToCart} = useContext(CartContext);
+
 
     // HANDLERS
     // ------------------------------------------------
@@ -43,7 +45,7 @@ function ProductItem({product, onQuantityChange, onAddItemToCart}: ProductItemPr
             quantityInCart: product.quantityToAdd
         }
 
-        onAddItemToCart(itemToAdd);
+        addToCart(itemToAdd);
     }
 
     // RENDERS

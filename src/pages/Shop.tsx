@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import type { Product, CartItem } from "../types/common.type"
+import type { Product } from "../types/common.type"
 import Navigation from "../components/Navigation";
 import ProductItem from "../components/ProductItem";
+import MiniCart from "../components/MiniCart";
 import './Shop.css';
+
 
 interface ProductAPIResponse {
   id: string;
@@ -38,8 +40,8 @@ interface ProductAPIResponse {
 function Shop() {
 
     const [products, setProducts] = useState<Product[] | []>([]);
-    const [cartItems, setCartItems] = useState<CartItem[] | []>([]);
 
+    
     // EFFECTS
     // ------------------------------------------------
 
@@ -114,41 +116,48 @@ function Shop() {
         );
     }
 
-    function handleAddItemToCart({id, name, imageURLSmall, price, quantityInCart}: CartItem) {
+    // NOTE: Reallocated to App.tsx to be used as context
+    // function handleAddItemToCart({id, name, imageURLSmall, price, quantityInCart}: CartItem) {
 
-        setCartItems(prev => 
-            [...prev, {
-                id: id,
-                name: name,
-                imageURLSmall: imageURLSmall,
-                price: price,
-                quantityInCart: quantityInCart,
-            }]
-        );
+    //     setCartItems(prev => 
+    //         [...prev, {
+    //             id: id,
+    //             name: name,
+    //             imageURLSmall: imageURLSmall,
+    //             price: price,
+    //             quantityInCart: quantityInCart,
+    //         }]
+    //     );
 
-        setProducts(prev =>
-            prev.map(product => product.id === id ? {...product, quantityToAdd: 1 } : product)
-        );
-    }
+    //     setProducts(prev =>
+    //         prev.map(product => product.id === id ? {...product, quantityToAdd: 1 } : product)
+    //     );
+    // }
 
     console.log("render shop page");
-    console.log(cartItems);
+    // console.log(cartItems);
 
     return(
-        <div>
-            <Navigation />
-            <h1>Shop</h1>
-            <div className="product-list">
-                {
-                    products.map((product: Product) =>
-                        <ProductItem 
-                            key = {product.id} 
-                            product = {product}
-                            onQuantityChange = {handleProductItemQuantityMod} 
-                            onAddItemToCart = {handleAddItemToCart}
-                        />
-                    )
-                }
+        <div className="l-page">
+            <div className="l-page--nav">
+                <Navigation />
+            </div>
+            <main className="l-page--main">
+                <h1>Shop</h1>
+                <div className="product-list">
+                    {
+                        products.map((product: Product) =>
+                            <ProductItem 
+                                key = {product.id} 
+                                product = {product}
+                                onQuantityChange = {handleProductItemQuantityMod} 
+                            />
+                        )
+                    }
+                </div>
+            </main>
+            <div className="l-page--cart">
+                <MiniCart />
             </div>
         </div>
     )
