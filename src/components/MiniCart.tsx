@@ -52,8 +52,7 @@ function MiniCart() {
 
         if (cartItems.length) {
 
-            let totalPrice: number = 0;
-            cartItems.map((item) => totalPrice = totalPrice + (item.price * item.quantityInCart));
+            let totalPrice: number = cartItems.reduce((sum, item) => sum + (item.price * item.quantityInCart), 0);
 
             return (
                 <>
@@ -68,7 +67,7 @@ function MiniCart() {
                             </div>
                         </div>
                     )}
-                    <strong>Total: ${totalPrice}</strong>
+                    <strong>Total: ${totalPrice.toFixed(2)}</strong>
                 </>
             )
         }
