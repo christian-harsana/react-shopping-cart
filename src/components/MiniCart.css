@@ -1,0 +1,17 @@
+.mini-cart {
+    position: relative;
+}
+
+.mini-cart--toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.cart-item {
+    display: flex;
+}
+
+.cart-item--image {
+    height: 100px;
+}
