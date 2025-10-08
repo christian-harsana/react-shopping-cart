@@ -21,15 +21,32 @@ function App() {
 
   const addToCart = (item: CartItem) => {
 
-      setCartItems(prev => 
-          [...prev, {
+      setCartItems((prevCartItems) => {
+
+        // Check if the item exist
+        const itemIndex = prevCartItems.findIndex((prevItem) => prevItem.id === item.id);
+
+        if (itemIndex === -1) {
+
+          // Add new item 
+          return [...prevCartItems, {
               id: item.id,
               name: item.name,
               imageURLSmall: item.imageURLSmall,
               price: item.price,
               quantityInCart: item.quantityInCart,
-          }]
-      );
+          }];
+
+        }
+        else {
+          
+          // Update quantity for target item
+          const updatedItems = [...prevCartItems];
+          updatedItems[itemIndex] = {...updatedItems[itemIndex], quantityInCart: updatedItems[itemIndex].quantityInCart + item.quantityInCart}
+
+          return updatedItems;
+        }
+      });
 
       // TODO: reallocate setProducts to accomodate the following
       // Reset the quantity to 1
