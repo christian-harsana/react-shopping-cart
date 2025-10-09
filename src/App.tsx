@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import routes from './routes/routes.tsx'
 import './App.css'
-import type { CartItem } from "./types/common.type"
+import type { CartItemType } from "./types/common.type"
 import { CartContext } from './contexts/CartContext.tsx'
 
 
@@ -13,13 +13,14 @@ function App() {
   // VARIABLES
   // ----------------------------------
 
-  const [cartItems, setCartItems] = useState<CartItem[] | []>([]);
+  const [cartItems, setCartItems] = useState<CartItemType[] | []>([]);
 
 
   // HANDLERS
   // ----------------------------------
 
-  const addToCart = (item: CartItem) => {
+  // Cart - Add
+  const addToCart = (item: CartItemType) => {
 
       setCartItems((prevCartItems) => {
 
@@ -47,22 +48,33 @@ function App() {
           return updatedItems;
         }
       });
-
-      // TODO: reallocate setProducts to accomodate the following
-      // Reset the quantity to 1
-      // setProducts(prev =>
-      //     prev.map(product => product.id === id ? {...product, quantityToAdd: 1 } : product)
-      // );
   }
 
+  // Cart - Remove
   const removeFromCart = (itemId: string) => {
 
     setCartItems(prev => prev.filter(item => item.id !== itemId));
+  }
+
+  // Cart - Update Quantity
+  const updateCartQuantity = (itemId: string, newQuantity: number) => {
+
+    setCartItems((prevCartItems) => {
+
+      const itemIndex = prevCartItems.findIndex(prevItem => prevItem.id === itemId);
+      const updatedItems = [...prevCartItems];
+      updatedItems[itemIndex] = {...updatedItems[itemIndex], quantityInCart : newQuantity};
+      
+      return updatedItems;
+    });
 
   }
 
+  // RENDER
+  // ----------------------------------
+
   return (
-    <CartContext value={{cartItems, addToCart, removeFromCart}}>
+    <CartContext value={{cartItems, addToCart, removeFromCart, updateCartQuantity}}>
       <RouterProvider router={router} />
     </CartContext>
   )

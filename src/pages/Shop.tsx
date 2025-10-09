@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Product } from "../types/common.type"
+import type { ProductType } from "../types/common.type"
 import Navigation from "../components/Navigation";
 import ProductItem from "../components/ProductItem";
 import MiniCart from "../components/MiniCart";
@@ -39,7 +39,7 @@ interface ProductAPIResponse {
 
 function Shop() {
 
-    const [products, setProducts] = useState<Product[] | []>([]);
+    const [products, setProducts] = useState<ProductType[] | []>([]);
 
     
     // EFFECTS
@@ -86,7 +86,7 @@ function Shop() {
         getProducts().then((data) => {
 
             const productsData = typeof data === "string" ? JSON.parse(data) : data;
-            let formattedProducts: Product[] | [] = [];
+            let formattedProducts: ProductType[] | [] = [];
 
             productsData.data.map((product: ProductAPIResponse) => {
 
@@ -109,53 +109,40 @@ function Shop() {
     // HANDLERS
     // ------------------------------------------------
 
-    function handleProductItemQuantityMod(productId: string, quantity: number) {
+    const onProductItemQuantityChange = (productId: string, quantity: number) => {
 
         setProducts(prevProducts => 
             prevProducts.map(product => product.id === productId ? {...product, quantityToAdd: quantity } : product)
         );
-    }
+    };
 
-    // NOTE: Reallocated to App.tsx to be used as context
-    // function handleAddItemToCart({id, name, imageURLSmall, price, quantityInCart}: CartItem) {
 
-    //     setCartItems(prev => 
-    //         [...prev, {
-    //             id: id,
-    //             name: name,
-    //             imageURLSmall: imageURLSmall,
-    //             price: price,
-    //             quantityInCart: quantityInCart,
-    //         }]
-    //     );
-
-    //     setProducts(prev =>
-    //         prev.map(product => product.id === id ? {...product, quantityToAdd: 1 } : product)
-    //     );
-    // }
+    // RENDERS
+    // ------------------------------------------------
 
     console.log("render shop page");
-    // console.log(cartItems);
 
     return(
         <div className="l-page">
             <div className="l-page--nav">
                 <Navigation />
             </div>
+
             <main className="l-page--main">
                 <h1>Shop</h1>
                 <div className="product-list">
                     {
-                        products.map((product: Product) =>
+                        products.map((product: ProductType) =>
                             <ProductItem 
                                 key = {product.id} 
                                 product = {product}
-                                onQuantityChange = {handleProductItemQuantityMod} 
+                                onQuantityChange = {onProductItemQuantityChange} 
                             />
                         )
                     }
                 </div>
             </main>
+
             <div className="l-page--cart">
                 <MiniCart />
             </div>

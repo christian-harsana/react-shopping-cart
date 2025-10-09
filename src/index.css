@@ -91,15 +91,20 @@ button svg {
 }
 
 .l-page--nav {
-  flex-basis: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-basis: 200px;
   flex-grow: 0;
   flex-shrink: 0;
-  width: 250px;
+  padding: 1.5rem;
+  width: 200px;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: #1abc9c;
   color: #f4f4f4;
+  box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.5)
 }
 
   .l-page--nav a {

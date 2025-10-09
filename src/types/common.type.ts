@@ -1,4 +1,4 @@
-export type Product = {
+export type ProductType = {
     id: string,
     name: string,
     imageURLSmall: string,
@@ -7,7 +7,7 @@ export type Product = {
     quantityToAdd: number,
 }
 
-export type CartItem = Omit<Product, 'imageURLLarge' | 'price' | 'quantityToAdd'> & {
+export type CartItemType = Omit<ProductType, 'imageURLLarge' | 'price' | 'quantityToAdd'> & {
     price: number;
     quantityInCart: number;
 }

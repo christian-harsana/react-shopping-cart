@@ -1,10 +1,10 @@
 import { useContext, type ChangeEvent } from "react";
-import type { CartItem, Product } from "../types/common.type";
+import type { CartItemType, ProductType } from "../types/common.type";
 import { CartContext } from "../contexts/CartContext";
 import "./ProductItem.css";
 
 type ProductItemProps = {
-    product: Product,
+    product: ProductType,
     onQuantityChange: (productId: string, quantity: number) => void
 }
 
@@ -37,7 +37,7 @@ function ProductItem({product, onQuantityChange}: ProductItemProps) {
 
     function handleAddItemToCart() {
 
-        const itemToAdd: CartItem = {
+        const itemToAdd: CartItemType = {
             id: product.id,
             name: productTitle,
             imageURLSmall: product.imageURLSmall,
