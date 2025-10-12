@@ -1,5 +1,5 @@
 import Navigation from "../components/Navigation";
-import MiniCart from "../components/MiniCart";
+// import MiniCart from "../components/MiniCart";
 import banner from "../assets/banner.png"
 
 function Home() {
@@ -18,8 +18,9 @@ function Home() {
                     </div>
 
                     <p>
-                        Welcome to JCH Cards Mock Shop. This app is basically a playing ground for me to practice or experiment with various web development concepts.
-                        At the moment it is mainly to practice React concepts such as routing, context API, and many more.
+                        Welcome to JCH Cards Mock Shop. 
+                        This app is basically a playground for me to practice or experiment with various web development concepts, tools, or techniques.
+                        Currently, it is mainly to practice React routing, React Context API, React Testing Library, etc.
                     </p>
                 </div>
             </main>

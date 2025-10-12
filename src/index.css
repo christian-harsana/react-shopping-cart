@@ -102,22 +102,26 @@ button,
   transition: border-color, background-color 0.25s;
 }
 
-  button:hover {
+  button:hover,
+  .button:hover {
     background-color: var(--color-default-hover)
   }
 
-  button:disabled {
+  button:disabled,
+  .button:disabled {
     opacity: 0.3;
     cursor: default;
   }
 
   button:focus,
-  button:focus-visible {
+  button:focus-visible,
+  .button:focus,
+  .button:focus-visible {
     outline: 4px auto var(--color-default);
-    /* border-color: #FFF; */
   }
 
-button svg {
+button svg,
+.button svg {
   fill: #FFF;
 }
 
@@ -288,10 +292,6 @@ td {
   background-color: var(--color-primary-hover);
 }
 
-/* .btn-primary:focus {
-  outline: var(--color-primary) solid 2px;
-} */
-
 .btn-primary:disabled {
   color: var(--color-text-alt);
   background-color: var(--color-primary);
@@ -326,9 +326,6 @@ td {
     fill: var(--color-primary);
   }
 
-  /* .btn-primary-outline:focus {
-    outline: var(--color-primary) solid 2px;
-  } */
 
 /* ------------------------------------
 /* UTILITIES
