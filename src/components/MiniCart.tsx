@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import type { CartItemType } from "../types/common.type";
 import CartItem from "./CartItem";
@@ -48,7 +48,7 @@ function MiniCartContent({cartItems, handleChangeQuantity, handleRemoveItemFromC
 function MiniCart() {
 
     const { cartItems, removeFromCart, updateCartQuantity } = useContext(CartContext);
-    const [ isMiniCartVisible, setIsMiniCartVisibe ] = useState<boolean>(false);
+    // const [ isMiniCartVisible, setIsMiniCartVisibe ] = useState<boolean>(false);
     let totalItemCount = 0;
     
     if (cartItems.length) {
@@ -69,9 +69,9 @@ function MiniCart() {
         removeFromCart(itemId);
     };
 
-    const handleToggleCart = () => {
-        setIsMiniCartVisibe(!isMiniCartVisible);
-    }
+    // const handleToggleCart = () => {
+    //     setIsMiniCartVisibe(!isMiniCartVisible);
+    // }
 
 
     // RENDERS

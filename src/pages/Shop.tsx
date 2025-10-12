@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import type { ProductType } from "../types/common.type"
 import Navigation from "../components/Navigation";
 import ProductItem from "../components/ProductItem";
-import MiniCart from "../components/MiniCart";
+// import MiniCart from "../components/MiniCart";
 import './Shop.css';
 
 
