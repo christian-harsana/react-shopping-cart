@@ -4,7 +4,7 @@
 
 <p>Building up from the previous 2 projects, this project features the use of <code>React Router</code> and <code>React Context API</code>.</p>
 
-<p><a href="https://react-shopping-cart-ten-kappa.vercel.app/" target="_blank">Live URL</a>.</p>
+<p><a href="https://react-shopping-cart-sigma-roan.vercel.app/" target="_blank">Live URL</a>.</p>
 
 ## Technologies
 - React
