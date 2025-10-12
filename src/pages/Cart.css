@@ -1,0 +1,32 @@
+.cart-product {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+    .cart-product--image {
+        flex-basis: 80px;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+        .cart-product--image img {
+            width: 100%;
+        }
+
+    .cart-product--name {
+        font-weight: 500;
+    }
+
+.cart-quantity {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    width: 12.5rem;
+}
+
+    .cart-quantity input[type="text"] {
+        min-width: 0;
+        text-align: center;
+    }

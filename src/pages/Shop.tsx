@@ -129,23 +129,25 @@ function Shop() {
             </div>
 
             <main className="l-page--main">
-                <h1>Shop</h1>
-                <div className="product-list">
+                <h1 className="hd-page-title">Shop</h1>
+
+                <ul className="product-list">
                     {
                         products.map((product: ProductType) =>
-                            <ProductItem 
-                                key = {product.id} 
-                                product = {product}
-                                onQuantityChange = {onProductItemQuantityChange} 
-                            />
+                            <li key = {product.id}>
+                                <ProductItem  
+                                    product = {product}
+                                    onQuantityChange = {onProductItemQuantityChange} 
+                                />
+                            </li>
                         )
                     }
-                </div>
+                </ul>
             </main>
 
-            <div className="l-page--cart">
+            {/* <div className="l-page--cart">
                 <MiniCart />
-            </div>
+            </div> */}
         </div>
     )
 }
