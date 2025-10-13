@@ -17,6 +17,6 @@
 - Vite
 
 ## Future updates
-- Add unit tests
+- Add tests
 - Implement loading indicator when loading the products at shop page
 - Add search functionality for the shop page
