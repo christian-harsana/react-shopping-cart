@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import type { ProductType } from "../types/common.type"
 import Navigation from "../components/Navigation";
 import ProductItem from "../components/ProductItem";
+import LoadingSpinner from "../components/LoadingSpinner";
 // import MiniCart from "../components/MiniCart";
 import './Shop.css';
 
@@ -40,7 +41,8 @@ interface ProductAPIResponse {
 function Shop() {
 
     const [products, setProducts] = useState<ProductType[] | []>([]);
-
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
     
     // EFFECTS
     // ------------------------------------------------
@@ -50,6 +52,9 @@ function Shop() {
         const getProducts = async () => {
 
             try {
+                setLoading(true);
+                setError(null);
+
                 const initShopParams = new URLSearchParams({
                     pageSize: '30',
                     select: 'id,name,images,cardmarket',
@@ -80,6 +85,15 @@ function Shop() {
             }
             catch (error) {
                 console.error('Error fetch card:', error);
+
+                if (error instanceof Error) {
+                    setError(error.message);
+                } else {
+                    setError("An unknown error occurred");
+                }
+            }
+            finally {
+                setLoading(false);
             }
         }
 
@@ -131,18 +145,23 @@ function Shop() {
             <main className="l-page--main">
                 <h1 className="hd-page-title">Shop</h1>
 
-                <ul className="product-list">
-                    {
-                        products.map((product: ProductType) =>
-                            <li key = {product.id}>
-                                <ProductItem  
-                                    product = {product}
-                                    onQuantityChange = {onProductItemQuantityChange} 
-                                />
-                            </li>
-                        )
-                    }
-                </ul>
+                <div className="product-area">
+                    {loading && <LoadingSpinner/> }
+                    {error && <p><strong>Error:</strong> {error}</p> }
+
+                    <ul className="product-list">
+                        {
+                            products.map((product: ProductType) =>
+                                <li key = {product.id}>
+                                    <ProductItem  
+                                        product = {product}
+                                        onQuantityChange = {onProductItemQuantityChange} 
+                                    />
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
             </main>
 
             {/* <div className="l-page--cart">
