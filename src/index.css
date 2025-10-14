@@ -338,3 +338,7 @@ td {
 .u-text-align-right {
   text-align: right;
 }
+
+.u-screen-reader-only {
+  display: none;
+}
