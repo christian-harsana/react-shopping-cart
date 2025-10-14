@@ -17,9 +17,11 @@
 - npm
 - Vite
 
-## Updates & Future Updates
-- <strong>14 Oct 2025</strong>
-    - Add React test cases using React Testing Library 
-    - Implement loading indicator when loading the products at shop page
+## Updates
+<strong>14 Oct 2025:</strong>
+- Add React test cases using React Testing Library 
+- Implement loading indicator when loading the products at shop page
+
+<strong>To do:</strong>
 - Speed up the initial data fetch at the shop page
 - Add search functionality for the shop page
