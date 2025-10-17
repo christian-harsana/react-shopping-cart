@@ -71,7 +71,7 @@ function ProductItem({product, onQuantityChange}: ProductItemProps) {
                 <img src={product.imageURLSmall} alt={`${product.name} image`} />
             </div>
             <h3 className="product-card--title">
-                {product.name}<br/>
+                {product.name} <br/>
                 ({product.id})
             </h3>
             <div className="product-card--price">{priceDisplay}</div>
