@@ -2,7 +2,6 @@ export type ProductType = {
     id: string,
     name: string,
     imageURLSmall: string,
-    imageURLLarge: string,
     price: number | "not available",
     quantityToAdd: number,
 }

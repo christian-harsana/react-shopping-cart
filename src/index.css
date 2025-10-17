@@ -90,6 +90,11 @@ input[type="text"]:focus-visible {
 
 button,
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.6rem;
   border-radius: var(--border-radius-standard);
   border: 1px solid transparent;
   padding: 0.6rem 1.2rem;
@@ -325,6 +330,50 @@ td {
   .btn-primary-outline:disabled svg {
     fill: var(--color-primary);
   }
+
+
+/* Skeleton Loader */
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-standard);
+}
+
+.skeleton:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background-color: color-mix(in srgb, var(--color-default) 50%, white);
+}
+
+.skeleton:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  z-index: 100;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+/* Keyframes */
+@keyframes shimmer {
+  100% {
+    transform: translateX(500%);
+  }
+}
 
 
 /* ------------------------------------
