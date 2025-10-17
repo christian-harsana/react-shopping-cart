@@ -14,7 +14,6 @@ describe('ProductItem Component', () => {
             id: '1',
             name: 'Product 1',
             imageURLSmall: 'img/product-1-sm.jpg',
-            imageURLLarge: 'img/product-1-lg.jpg',
             price: 1.99,
             quantityToAdd: 1
         }
@@ -41,7 +40,6 @@ describe('ProductItem Component', () => {
             id: '1',
             name: 'Product 1',
             imageURLSmall: 'img/product-1-sm.jpg',
-            imageURLLarge: 'img/product-1-lg.jpg',
             price: 1.99,
             quantityToAdd: 1
         };
@@ -69,7 +67,6 @@ describe('ProductItem Component', () => {
             id: '1',
             name: 'Product 1',
             imageURLSmall: 'img/product-1-sm.jpg',
-            imageURLLarge: 'img/product-1-lg.jpg',
             price: 1.99,
             quantityToAdd: 2
         };
@@ -103,7 +100,6 @@ describe('ProductItem Component', () => {
             id: '1',
             name: 'Product 1',
             imageURLSmall: 'img/product-1-sm.jpg',
-            imageURLLarge: 'img/product-1-lg.jpg',
             price: 1.99,
             quantityToAdd: 1
         };
@@ -130,7 +126,6 @@ describe('ProductItem Component', () => {
             id: '1',
             name: 'Product 1',
             imageURLSmall: 'img/product-1-sm.jpg',
-            imageURLLarge: 'img/product-1-lg.jpg',
             price: 'not available',
             quantityToAdd: 1
         };
@@ -168,7 +163,6 @@ describe('ProductItem Component', () => {
             id: '1',
             name: 'Product 1',
             imageURLSmall: 'img/product-1-sm.jpg',
-            imageURLLarge: 'img/product-1-lg.jpg',
             price: 1.99,
             quantityToAdd: 1
         };

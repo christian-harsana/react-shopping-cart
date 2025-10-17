@@ -6,7 +6,7 @@ export type ProductType = {
     quantityToAdd: number,
 }
 
-export type CartItemType = Omit<ProductType, 'imageURLLarge' | 'price' | 'quantityToAdd'> & {
+export type CartItemType = Omit<ProductType, 'price' | 'quantityToAdd'> & {
     price: number;
     quantityInCart: number;
 }
