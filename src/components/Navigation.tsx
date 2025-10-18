@@ -1,11 +1,12 @@
 import { NavLink } from "react-router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import "./Navigation.css"
 import logo from "../assets/logo.png"
 
 function Navigation() {
 
+    const [menuExpand, setMenuExpand] = useState(false);
     const {cartItems} = useContext(CartContext);
     let totalItemCount = 0;
     
@@ -15,12 +16,25 @@ function Navigation() {
         }
     }
 
+    const onMenuToggle = () => {
+        setMenuExpand(!menuExpand);
+    }
+
     return (
         <>
             <div className="logo">
                 <img src={logo} alt="JCH Card Shop Logo" />
             </div>
-            <nav>
+
+            <button type="button" className="menu-toggle" onClick={onMenuToggle}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" aria-hidden="true">
+                    {/* !Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */}
+                    <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
+                </svg>
+                <span className="u-screen-reader-only">Toggle Menu</span>
+            </button>
+            
+            <nav className={`main-nav ${menuExpand ? "s-main-nav-expanded" : ""}`}>
                 <ul>
                     <li>
                         <NavLink to="/">

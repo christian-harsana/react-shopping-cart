@@ -2,52 +2,84 @@
     display: flex;
     justify-content: center;
     height: 15rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
     .logo img {
         height: 15rem;
     }
 
-nav ul {
-    list-style-type: none;
-    margin-block: 1rem;
-    padding-inline-start: 0;
+.menu-toggle {
+    position: absolute;
+    top: calc(2rem + 5.7rem);
+    left: 2rem;
+    padding: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
 }
 
-nav li {
-    margin-block: 0.5rem;
+.main-nav {
+    max-height: 0;
+    overflow: hidden;
 }
 
-nav a {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    padding-block: 0.7rem;
-    padding-inline: 1rem;
-    border-radius: var(--border-radius-standard);
-    color: var(--color-text-alt);
-    transition: color, background-color 0.25s;
-}
-
-    nav a svg {
-        margin-inline-end: 1rem;
-        fill: var(--color-text-alt);
-        transition: fill 0.25s;
+    .main-nav ul {
+        list-style-type: none;
+        margin-block: 1rem;
+        padding-inline-start: 0;
     }
 
-nav a.active,
-nav a:hover {
-    background-color: rgba(244, 244, 244, 0.5);
-    color: var(--color-text);
-}
-
-    nav a.active svg,
-    nav a:hover svg {
-        fill: var(--color-text);
+    .main-nav li {
+        margin-block: 0.5rem;
     }
 
-nav a.active {
-    background-color: rgba(244, 244, 244, 0.8);
+    .main-nav a {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding-block: 0.7rem;
+        padding-inline: 1rem;
+        border-radius: var(--border-radius-standard);
+        color: var(--color-text-alt);
+        transition: color, background-color 0.25s;
+    }
+
+        .main-nav a svg {
+            margin-inline-end: 1rem;
+            fill: var(--color-text-alt);
+            transition: fill 0.25s;
+        }
+
+    .main-nav a:hover {
+        background-color: rgba(244, 244, 244, 0.5);
+        color: var(--color-text);
+    }
+
+        .main-nav a.active svg,
+        .main-nav a:hover svg {
+            fill: var(--color-text);
+        }
+
+    .main-nav a.active {
+        background-color: rgba(244, 244, 244, 0.8);
+        color: var(--color-text);
+    }
+
+.s-main-nav-expanded {
+    max-height: 100rem;
 }
 
+@media screen and (min-width: 992px) {
+
+    .logo {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .main-nav {
+        max-height: none;
+    }
+}

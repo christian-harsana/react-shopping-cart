@@ -4,15 +4,15 @@
 
 .product-list {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
     padding-inline-start: 0;
-    max-width: calc(1024px - 6rem);
     list-style-type: none;
 }
 
 .product-card-mock {
-    width: 300px;
+    width: 280px;
     height: 500px;
 }
 

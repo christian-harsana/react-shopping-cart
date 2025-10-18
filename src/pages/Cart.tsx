@@ -44,7 +44,7 @@ export function CartBody({cartItems, onRemoveItem, onQuantityChange} : CartBodyP
     // RENDERS
     // ---------------------------------
 
-    if (cartItems.length < 1) return <tr><td colSpan={5}>There is currently no item in the cart.</td></tr>;
+    if (cartItems.length < 1) return <tr className="cart-no-item-row"><td colSpan={5}>There is currently no item in the cart.</td></tr>;
 
     return(
         <>
@@ -53,16 +53,14 @@ export function CartBody({cartItems, onRemoveItem, onQuantityChange} : CartBodyP
 
                 return(
                     <tr key={item.id}>
-                        <td>
-                            <div className="cart-product">
-                                <div className="cart-product--image">
-                                    <img src={item.imageURLSmall} alt={`${item.name} image`} />
-                                </div>
-                                <div className="cart-product--name">{item.name}</div>
-                            </div>
+                        <td className="cart-product-image-col">
+                            <img src={item.imageURLSmall} alt={`${item.name} image`} />
                         </td>
-                        <td>{`$${item.price.toFixed(2)}`}</td>
-                        <td>
+                        <td className="cart-product-name-col">
+                            {item.name}
+                        </td>
+                        <td className="cart-price-col">{`$${item.price.toFixed(2)}`}</td>
+                        <td className="cart-quantity-col">
                             <div className="cart-quantity">
                                 <button type="button" className="btn-primary-outline" name="substract" onClick={() => onCartBodyQuantitySubstract(item.id, item.quantityInCart - 1)}>
                                     <SubstractButtonIcon />
@@ -76,8 +74,8 @@ export function CartBody({cartItems, onRemoveItem, onQuantityChange} : CartBodyP
                                 </button>
                             </div>
                         </td>
-                        <td>{`$${total.toFixed(2)}`}</td>
-                        <td><button type="button" className="btn-primary btn-small" onClick={() => onRemoveItem(item.id)}>Remove</button></td>
+                        <td className="cart-total-col">{`$${total.toFixed(2)}`}</td>
+                        <td className="cart-remove-button-col"><button type="button" className="btn-primary btn-small" onClick={() => onRemoveItem(item.id)}>Remove</button></td>
                     </tr> 
                 );
             })} 
@@ -106,10 +104,10 @@ function Cart() {
                 <h1 className="hd-page-title">Cart</h1>
 
                 <div className="l-standard-content-area">
-                    <table>
+                    <table className="cart">
                         <thead>
                             <tr>
-                                <th>Product</th>
+                                <th colSpan={2}>Product</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
@@ -121,8 +119,8 @@ function Cart() {
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colSpan={3} className="u-text-align-right">Subtotal:</td>
-                                <td colSpan={2}>{`$${subTotal.toFixed(2)}`}</td>
+                                <td colSpan={4} className="cart-subtotal-header-cell">Subtotal:</td>
+                                <td colSpan={2} className="cart-subtotal-cell">{`$${subTotal.toFixed(2)}`}</td>
                             </tr>
                         </tfoot>
                     </table>

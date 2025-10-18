@@ -1,23 +1,76 @@
-.cart-product {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1.5rem;
-    align-items: center;
+.cart {
+    width: 100%;
 }
 
-    .cart-product--image {
-        flex-basis: 80px;
-        flex-grow: 0;
-        flex-shrink: 0;
+    .cart thead {
+        display: none;
     }
 
-        .cart-product--image img {
-            width: 100%;
-        }
-
-    .cart-product--name {
-        font-weight: 500;
+    .cart tr,
+    .cart tfoot {
+        display: block;
     }
+
+    .cart td {
+        padding: 0;
+        padding-block-end: 1rem;
+    }
+
+.cart tbody tr {
+    position: relative;
+    padding: 1rem;
+    padding-inline-start: 10.5rem;
+}
+
+    .cart tbody tr.cart-no-item-row {
+        padding-inline-start: 1rem;
+    }
+
+    .cart tbody tr.cart-no-item-row td {
+        padding-block-end: 0;
+    }
+
+.cart tfoot tr {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+}
+
+.cart tfoot td {
+    padding: 1rem;
+}
+
+.cart-product-image-col,
+.cart-product-name-col,
+.cart-quantity-col,
+.cart-total-col,
+.cart-remove-button-col {
+    display: block;
+}
+
+.cart-product-name-col {
+    font-weight: 700;
+}
+
+.cart-product-image-col {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 8rem;
+}
+
+    .cart-product-image-col img {
+        width: 100%;
+    }
+
+.cart-price-col {
+    display: none;
+}
+
+.cart-subtotal-cell {
+    flex-grow: 1;
+}
 
 .cart-quantity {
     display: flex;
@@ -30,3 +83,55 @@
         min-width: 0;
         text-align: center;
     }
+
+@media screen and (min-width: 768px) {
+
+    .cart thead {
+        display: table-header-group;
+    }
+
+    .cart tr,
+    .cart tbody tr {
+        display: table-row;
+        padding: 0;
+    }
+
+    .cart td {
+        padding: 1rem 1.2rem;
+    }
+
+    .cart tfoot {
+        display: table-footer-group;
+    }
+
+        .cart tfoot tr {
+            display: table-row;
+        }
+
+            .cart tbody tr.cart-no-item-row td {
+                padding-block-end: 1rem;
+            }
+
+    .cart-product-image-col,
+    .cart-product-name-col,
+    .cart-price-col,
+    .cart-quantity-col,
+    .cart-total-col,
+    .cart-remove-button-col {
+        display: table-cell;
+    }
+
+    .cart-product-image-col {
+        position: static;
+        width: 8rem;
+        text-align: center;
+    }
+
+    .cart-product-image-col img {
+        max-width: 8rem;
+    }
+
+    .cart-subtotal-header-cell {
+        text-align: right;
+    }
+}
