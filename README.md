@@ -18,6 +18,9 @@
 - Vite
 
 ## Updates
+<strong>18 Oct 2025:</strong>
+- Add some responsive design features mainly to navigation and cart display so the app still usable at smaller screen 
+
 <strong>17 Oct 2025:</strong>
 - Attempt to speed up the initial API data fetch at the shop page by implementing pagination and updating the local storage caching. The initial fetch still takes quite a while. Need to find another way.
 - Implement skeleton loading for the cards to improve user feedback visibility
