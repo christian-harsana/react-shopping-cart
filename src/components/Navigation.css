@@ -21,6 +21,7 @@
 .main-nav {
     max-height: 0;
     overflow: hidden;
+    transition: max-height 300ms;
 }
 
     .main-nav ul {
