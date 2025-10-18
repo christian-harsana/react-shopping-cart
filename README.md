@@ -18,10 +18,16 @@
 - Vite
 
 ## Updates
+<strong>17 Oct 2025:</strong>
+- Attempt to speed up the initial API data fetch at the shop page by implementing pagination and updating the local storage caching. The initial fetch still takes quite a while. Need to find another way.
+- Implement skeleton loading for the cards to improve user feedback visibility
+  
 <strong>14 Oct 2025:</strong>
 - Add React test cases using React Testing Library 
 - Implement loading indicator when loading the products at shop page
 
+<strong>13 Oct 2025:</strong>
+- Initial deployment 
+
 <strong>To do:</strong>
-- Speed up the initial data fetch at the shop page
 - Add search functionality for the shop page
