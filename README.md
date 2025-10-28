@@ -1,6 +1,6 @@
-# React Shopping Cart
+# Interactive E-commerce Simulator
 
-<p>A shopping cart for mock card shop. The project is based on <a href="https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart" target="_blank">the 3rd assignment of Odin Project's React Course</a>.</p>
+<p>An interactive app to simulate e-commerce experience with dynamic shopping cart functionalities. The project is based on <a href="https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart" target="_blank">the 3rd assignment of Odin Project's React Course</a>.</p>
 
 <p>Building up from the previous 2 projects, this project features the use of <code>React Router</code>, <code>React Context API</code>, and <code>React Testing Library</code>.</p>
 
